@@ -70,6 +70,9 @@ class RemootioCover(cover.CoverEntity):
         self._attr_device_info = DeviceInfo(
             name=name,
             manufacturer="Assemblabs Ltd",
+            identifiers={
+                (cover.DOMAIN, self.unique_id)
+            },
         )
 
     async def async_added_to_hass(self) -> None:
