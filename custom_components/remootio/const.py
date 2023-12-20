@@ -24,3 +24,6 @@ ATTR_SERIAL_NUMBER = CONF_SERIAL_NUMBER
 
 # Key for the dictionary entry which holds the instance of aioremootio.RemootioClient to connect to the Remootio device using the Remootio Websocket API
 REMOOTIO_CLIENT = "remootio_client"
+
+##
+DEFAULT_STATE = "closed"

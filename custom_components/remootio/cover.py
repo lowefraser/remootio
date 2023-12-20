@@ -13,7 +13,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import ATTR_SERIAL_NUMBER, CONF_SERIAL_NUMBER, DOMAIN, REMOOTIO_CLIENT
+from .const import ATTR_SERIAL_NUMBER, CONF_SERIAL_NUMBER, DOMAIN, REMOOTIO_CLIENT, DEFAULT_STATE
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -130,6 +130,7 @@ class RemootioCoverStateChangeListener(Listener[StateChange]):
         """Initialize an instance of this class."""
         super().__init__()
         self._owner = owner
+        self._owner.state = DEFAULT_STATE
 
     async def execute(self, client: RemootioClient, subject: StateChange) -> None:
         """Execute this listener. Tell Home Assistant that the Remootio controlled garage door or gate has changed its state."""
