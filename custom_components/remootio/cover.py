@@ -54,7 +54,7 @@ class RemootioCover(cover.CoverEntity):
     _remootio_client: RemootioClient
     _attr_has_entity_name = True
     _attr_should_poll = False
-    _attr_supported_features = cover.SUPPORT_OPEN | cover.SUPPORT_CLOSE
+    _attr_supported_features = cover.SUPPORT_TRIGGER ##cover.SUPPORT_OPEN | cover.SUPPORT_CLOSE
     def __init__(
         self,
         unique_id: str,
@@ -118,6 +118,11 @@ class RemootioCover(cover.CoverEntity):
     async def async_close_cover(self, **kwargs):
         """Close the Remootio controlled garage door or gate."""
         await self._remootio_client.trigger_close()
+    ##
+    async def async_trigger_cover(self, **kwargs):
+        """Trigger the Remootio controlled garage door or gate (No Sensor)."""
+        await self._remootio_client.trigger()
+
 
 
 class RemootioCoverStateChangeListener(Listener[StateChange]):

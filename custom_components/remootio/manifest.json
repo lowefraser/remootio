@@ -1,6 +1,6 @@
 {
   "domain": "remootio",
-  "name": "Remootio Smart Garage Door Opener",
+  "name": "Remootio Smart Gate Opener",
   "integration_type": "device",
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/remootio",
