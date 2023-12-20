@@ -92,6 +92,8 @@ class RemootioCover(cover.CoverEntity):
 
         self.async_schedule_update_ha_state(force_refresh=True)
 
+        self._remootio_client.state == State.CLOSED
+
     async def async_update(self) -> None:
         """Trigger state update of the used Remootio client."""
         await self._remootio_client.trigger_state_update()
@@ -130,7 +132,7 @@ class RemootioCoverStateChangeListener(Listener[StateChange]):
         """Initialize an instance of this class."""
         super().__init__()
         self._owner = owner
-        self._owner.state = DEFAULT_STATE
+       
 
     async def execute(self, client: RemootioClient, subject: StateChange) -> None:
         """Execute this listener. Tell Home Assistant that the Remootio controlled garage door or gate has changed its state."""
