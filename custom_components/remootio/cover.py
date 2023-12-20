@@ -74,6 +74,7 @@ class RemootioCover(cover.CoverEntity):
                 (cover.DOMAIN, self.unique_id)
             },
         )
+    
 
     async def async_added_to_hass(self) -> None:
         """Register listeners to the used Remootio client to be notified on state changes and events."""
@@ -92,7 +93,7 @@ class RemootioCover(cover.CoverEntity):
 
         self.async_schedule_update_ha_state(force_refresh=True)
 
-        self._remootio_client.state == State.CLOSED
+        self.is_closed(self)
 
     async def async_update(self) -> None:
         """Trigger state update of the used Remootio client."""
