@@ -2,4 +2,4 @@ To use this integration with your Remootio device it has to be connected to your
 
 original creator: ivgg-me,   Temp repo setup until this makes it into the main core one day 
 
-t
+lowefraser: Version to remove the requirement for a sensor. Work in Progress
