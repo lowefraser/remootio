@@ -62,7 +62,7 @@ async def get_serial_number(
             LoggerConfiguration(logger=logger),
         ) as remootio_client:
             if await _wait_for_connected(remootio_client):
-                await _check_sensor_installed(remootio_client)
+                ##await _check_sensor_installed(remootio_client)
                 await _check_api_version(remootio_client)
 
                 result = remootio_client.serial_number
@@ -87,7 +87,7 @@ async def create_client(
         )
 
         if await _wait_for_connected(result):
-            await _check_sensor_installed(result, False)
+            ##await _check_sensor_installed(result, False)
             await _check_api_version(result)
 
             if expected_serial_number is not None:
